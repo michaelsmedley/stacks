@@ -8,11 +8,11 @@ Recreates the effect from iOS contact lists etc.  When you scroll down a page, t
 Example use:
 <script type="text/javascript">
 $(function(){
-    $('body').stacks({
-        body: '.contentbox', //the parent element which houses the scrolling header
-        title: 'h1', // the element you want to scroll
-        margin: 16 //as the header gets absolutely positioned when it hits the bottom, you might want to counter some margin or padding issues
-    })
+$('body').stacks({
+    body: '.contentbox', //the parent element which houses the scrolling header
+    title: 'h1', // the element you want to scroll
+    margin: 16 //as the header gets absolutely positioned when it hits the bottom, you might want to counter some margin or padding issues
+})
 })
 </script>
 
