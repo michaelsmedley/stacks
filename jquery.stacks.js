@@ -18,10 +18,6 @@
 		margin : 0
     }, options);
 
-    $margin = 0 + settings.margin;
-
-
-
     $.each(this.find(settings.body+' '+settings.title),function(k,v){
 
     	$(window).resize(function(){
@@ -41,7 +37,7 @@
 		$(window).scroll(function(){
 
 				//console.log(offset.top);
-			 if(($(window).scrollTop()+$(v).outerHeight(true)) >= ($(v).closest(settings.body).offset().top + $(v).closest(settings.body).outerHeight(true)+$margin))
+			 if(($(window).scrollTop()+$(v).outerHeight(true)) >= ($(v).closest(settings.body).offset().top + $(v).closest(settings.body).outerHeight(true)+settings.margin))
 			{
 				/* stop at bottom */
 				$(v).removeClass('fixed').addClass('absolute').removeAttr('style');
@@ -65,8 +61,6 @@
 				$(v).siblings('#filler').remove();
 			}
 		});
-
-
 	})
   };
 })( jQuery );
