@@ -1,5 +1,4 @@
 /**
- * Stacks v. 1.0.0
  * Create iOS style stackable list/content headers
  * Made by Mike Smedley
  *
