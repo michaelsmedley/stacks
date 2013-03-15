@@ -19,31 +19,26 @@
 
     $.each(this.find(settings.body+' '+settings.title),function(k,v){
 
-    	$(window).resize(function(){
-			$.each($(settings.body+' '+settings.title),function(k,v){
-				var offset = $(v).offset();
-				$offset = offset.left;
-				//get padding values
-				$paddleft = $(v).css('padding-left').substring(0,$(v).css('padding-left').indexOf('p'));
-				$paddright = $(v).css('padding-right').substring(0,$(v).css('padding-left').indexOf('p'));
-				$width = $(v).parent().width() - $paddleft - $paddright;
-				$(v).css({'left':$offset,'width':$width});
-			});
-		})
+    	var offset = $(v).offset();
 
-		var offset = $(v).offset();
+    	$(window).resize(function(){
+			//get padding values
+			$paddleft = $(v).css('padding-left').substring(0,$(v).css('padding-left').indexOf('p'));
+			$paddright = $(v).css('padding-right').substring(0,$(v).css('padding-left').indexOf('p'));
+			$width = $(v).parent().width() - $paddleft - $paddright;
+			offset = $(v).offset();
+			$left = offset.left;
+			$(v).css({'left':$left,'width':$width});
+		});
 
 		$(window).scroll(function(){
-
-				//console.log(offset.top);
-			 if(($(window).scrollTop()+$(v).outerHeight(true)) >= ($(v).closest(settings.body).offset().top + $(v).closest(settings.body).outerHeight(true)+settings.margin))
+			if(($(window).scrollTop()+$(v).outerHeight(true)) >= ($(v).closest(settings.body).offset().top + $(v).closest(settings.body).outerHeight(true)+settings.margin))
 			{
 				/* stop at bottom */
 				$(v).removeClass('fixed').addClass('absolute').removeAttr('style');
 			}
 			else if($(document).scrollTop() >= (offset.top))
 			{
-				//console.log("top");
 				/* scroll from top */
 				$offset = offset.left;
 				$awidth = $(v).width();
