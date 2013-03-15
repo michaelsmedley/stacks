@@ -26,7 +26,10 @@
 			$paddleft = $(v).css('padding-left').substring(0,$(v).css('padding-left').indexOf('p'));
 			$paddright = $(v).css('padding-right').substring(0,$(v).css('padding-left').indexOf('p'));
 			$width = $(v).parent().width() - $paddleft - $paddright;
-			offset = $(v).offset();
+			if(!$(v).hasClass('fixed'))
+			{
+				offset = $(v).offset();
+			}
 			$left = offset.left;
 			$(v).css({'left':$left,'width':$width});
 		});
