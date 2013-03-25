@@ -12,9 +12,10 @@
   $.fn.stacks = function(options) {
 
   	var settings = $.extend( {
-		body: '.stickyparent',
+		body   : '.stickyparent',
 		title  : '.header',
-		margin : 0
+		margin : 0,
+		offset : 0
     }, options);
 
     $.each(this.find(settings.body+' '+settings.title),function(k,v){
@@ -35,12 +36,12 @@
 		});
 
 		$(window).scroll(function(){
-			if(($(window).scrollTop()+$(v).outerHeight(true)) >= ($(v).closest(settings.body).offset().top + $(v).closest(settings.body).outerHeight(true)+settings.margin))
+			if(($(window).scrollTop()+$(v).outerHeight(true)) >= ($(v).closest(settings.body).offset().top + $(v).closest(settings.body).outerHeight(true)+settings.margin)-settings.offset)
 			{
 				/* stop at bottom */
 				$(v).removeClass('fixed').addClass('absolute').removeAttr('style');
 			}
-			else if($(document).scrollTop() >= (offset.top))
+			else if($(document).scrollTop() >= (offset.top) - settings.offset)
 			{
 				/* scroll from top */
 				$offset = offset.left;
