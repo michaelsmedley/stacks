@@ -70,7 +70,7 @@
 
 	//when the page has loaded, if we are scrolled down we need to insert filler items to padd out the screen
 	setTimeout(function(){
-	    $.each($('.absolute'),function(a,b){
+	    $.each($(settings.body+' '+settings.title+'.absolute'),function(a,b){
 	    	
 	    	$('<div id="filler" />').css('height',$(b).outerHeight(true)).insertAfter($(b));
 	    })
