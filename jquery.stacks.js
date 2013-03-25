@@ -22,6 +22,11 @@
 
     	var offset = $(v).offset();
 
+    	$bdr = 0;
+    	$bordertopheight = $(v).css('border-top-width').substring(0,$(v).css('border-top-width').indexOf('p'));
+		$borderbtmheight = $(v).css('border-bottom-width').substring(0,$(v).css('border-bottom-width').indexOf('p'));
+		$bdr = (parseInt($bordertopheight) + parseInt($borderbtmheight));
+
     	$(window).resize(function(){
 			//get padding values
 			$paddleft = $(v).css('padding-left').substring(0,$(v).css('padding-left').indexOf('p'));
@@ -36,7 +41,7 @@
 		});
 
 		$(window).scroll(function(){
-			if(($(window).scrollTop()+$(v).outerHeight(true)) >= ($(v).closest(settings.body).offset().top + $(v).closest(settings.body).outerHeight(true)+settings.margin)-settings.offset)
+			if(($(window).scrollTop()+($(v).outerHeight(true)-$bdr)) >= ($(v).closest(settings.body).offset().top + $(v).closest(settings.body).outerHeight(true)+settings.margin)-settings.offset)
 			{
 				/* stop at bottom */
 				$(v).removeClass('fixed').addClass('absolute').removeAttr('style');
