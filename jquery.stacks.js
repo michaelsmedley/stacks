@@ -18,6 +18,8 @@
 		offset : 0
     }, options);
 
+    
+
     $.each(this.find(settings.body+' '+settings.title),function(k,v){
 
     	var offset = $(v).offset();
@@ -65,5 +67,13 @@
 			}
 		});
 	})
+
+	//when the page has loaded, if we are scrolled down we need to insert filler items to padd out the screen
+	setTimeout(function(){
+	    $.each($('.absolute'),function(a,b){
+	    	
+	    	$('<div id="filler" />').css('height',$(b).outerHeight(true)).insertAfter($(b));
+	    })
+	},100);
   };
 })( jQuery );
