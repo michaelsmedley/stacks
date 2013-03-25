@@ -6,6 +6,7 @@
  * @body: The parent container holding your title.  A container is needed for each individual title
  * @title: The title that you want to scroll down the page
  * @margin: Because the title gets absolutely positioned when it hits the bottom, you might need to supply a negative margin to counter any padding/margin on your parent element
+ * @offset: If you have other fixed elements above, you can specify the offset here
  */
 
 (function( $ ) {
@@ -17,8 +18,6 @@
 		margin : 0,
 		offset : 0
     }, options);
-
-    
 
     $.each(this.find(settings.body+' '+settings.title),function(k,v){
 
