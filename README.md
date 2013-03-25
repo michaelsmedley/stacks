@@ -12,7 +12,8 @@ Example use:
     	$('body').stacks({
         	body: '.contentbox', //the parent element which houses the scrolling header
         	title: 'h1', // the element you want to scroll
-        	margin: 16 //as the header gets absolutely positioned when it hits the bottom, you might want to counter some margin or padding issues
+        	margin: 16, //as the header gets absolutely positioned when it hits the bottom, you might want to counter some margin or padding issues
+            offset: 0 //if you have any other fixed elements, or need to include a margin from the top of the window, specify it here
     	})
 	})
 	</script>
