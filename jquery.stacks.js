@@ -13,7 +13,7 @@
   $.fn.stacks = function(options) {
 
   	var settings = $.extend( {
-		body   : '.stickyparent',
+		body   : '.container',
 		title  : '.header',
 		margin : 0,
 		offset : 0
