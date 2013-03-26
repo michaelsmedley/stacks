@@ -23,18 +23,20 @@
 
     	var offset = $(v).offset();
 
+    	//get any border width to add to the outerHeight of a title, so that we can calculate the size of the #filler properly
     	$bdr = 0;
     	$bordertopheight = $(v).css('border-top-width').substring(0,$(v).css('border-top-width').indexOf('p'));
 		$borderbtmheight = $(v).css('border-bottom-width').substring(0,$(v).css('border-bottom-width').indexOf('p'));
-		$bdr = (parseInt($bordertopheight) + parseInt($borderbtmheight));
+		$bdr = parseInt($bordertopheight) + parseInt($borderbtmheight);
 
     	$(window).resize(function(){
-			//get padding values
+			//get padding values so we can offset against fixed element width and give them the proper size (i.e no horizontal overhang)
 			$paddleft = $(v).css('padding-left').substring(0,$(v).css('padding-left').indexOf('p'));
 			$paddright = $(v).css('padding-right').substring(0,$(v).css('padding-left').indexOf('p'));
 			$width = $(v).parent().width() - $paddleft - $paddright;
 			if(!$(v).hasClass('fixed'))
 			{
+				//recalculate the offset incase content flow has pushed elements down
 				offset = $(v).offset();
 			}
 			$left = offset.left;
@@ -60,6 +62,7 @@
 			}
 			else
 			{
+				/* somewhere inbetween */
 				$(v).removeClass('fixed');
 				$(v).removeAttr('style');
 				$(v).siblings('#filler').remove();
@@ -70,7 +73,6 @@
 	//when the page has loaded, if we are scrolled down we need to insert filler items to padd out the screen
 	setTimeout(function(){
 	    $.each($(settings.body+' '+settings.title+'.absolute'),function(a,b){
-	    	
 	    	$('<div id="filler" />').css('height',$(b).outerHeight(true)).insertAfter($(b));
 	    })
 	},100);
