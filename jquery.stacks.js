@@ -1,6 +1,6 @@
 /**
  * Create iOS style stackable list/content headers
- * Made by Mike Smedley / @pxlcrft
+ * Made by Mike Smedley / @smdly
  *
  * Arguments:
  * @body: The parent container holding your title.  A container is needed for each individual title
