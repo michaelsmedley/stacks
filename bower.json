@@ -1,0 +1,24 @@
+{
+  "name": "stacks",
+  "version": "1.0.0",
+  "homepage": "https://github.com/michaelsmedley/stacks",
+  "authors": [
+    "Mike Smedley"
+  ],
+  "description": "A jQuery plugin to create iOS list-style stacking headers",
+  "main": "jquery.stacks.js",
+  "keywords": [
+    "jQuery",
+    "iOS"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=1.10.2"
+  }
+}
